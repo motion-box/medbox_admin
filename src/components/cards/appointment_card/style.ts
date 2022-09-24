@@ -3,7 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   width: 100%;
   display: grid;
-  gap: 16pxw;
+  gap: 16px;
 
   .card {
     display: grid;

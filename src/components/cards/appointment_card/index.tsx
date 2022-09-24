@@ -50,10 +50,9 @@ const AppointmentCard = () => {
       ))}
       <div className="card">
         <ButtonRow
-          photo="/avatar.webp"
-          title="Ulugbek"
-          verifyIcon="s"
-          description="Doctor"
+          photo="/alean.webp"
+          title="Alena"
+          description="Driver"
           timeContainer={{
             time: "09:41",
             label: "ready",
@@ -67,10 +66,10 @@ const AppointmentCard = () => {
       </div>
       <div className="card">
         <ButtonRow
+          onClick={() => "/session_page"}
           photo="/avatar.webp"
           title="Ulugbek"
-          verifyIcon="s"
-          description="Doctor"
+          description="Designer"
           timeContainer={{
             time: "09:41",
             label: "ready",

@@ -7,7 +7,7 @@ const Container = styled.div<RightPanelProps>`
   display: grid;
   padding: 16px;
   gap: 8px;
-  border-left: 1px solid ${(props) => `var(--${props.borderLeft || ""})`};
+  border-left: 1px solid var(--dynamic_light_stroke);
   background-color: var(--dynamic_light_bg);
 
   .button {

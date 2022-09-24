@@ -6,7 +6,7 @@ import { CommonTitlerProps } from "../../components/navigations/titler/common_ti
 import LayoutPage from "../../components/page_components/layout_page";
 import LeftPanel from "../../components/page_components/left_panel";
 import MainPageItems from "../../components/page_components/main_page_items";
-import PanelItemWrapper from "../../components/page_components/panel_item_wrapper/inedx";
+import PanelItemWrapper from "../../components/page_components/panel_item_wrapper/index";
 import { PanelItemWrapperProps } from "../../components/page_components/panel_item_wrapper/utils/panel-item-wrapper-type";
 import RightPanel from "../../components/page_components/right_panel";
 import TextProvider from "../../components/providers/text_provider";

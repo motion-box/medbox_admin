@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
 import ButtonRow, { ButtonRowPropsDemo } from "../../buttons/button_row";
 import SearchFiled from "../../navigations/search_filed";
 import CommonTitler from "../../navigations/titler/common_titler";
-import PanelItemWrapper from "../panel_item_wrapper/inedx";
+import PanelItemWrapper from "../panel_item_wrapper/index";
 import { PanelItemWrapperProps } from "../panel_item_wrapper/utils/panel-item-wrapper-type";
 import Container from "./style";
 
@@ -19,7 +20,7 @@ const data: DataType[] = [
         id: 0,
         title: "Anastasiya Victorovna",
         description: "Кардиолог, терапевт",
-        photo: "/avatar.webp",
+        photo: "/monica.jpeg",
         titleBottomLeft: "s",
         verifyIcon: "s",
         arrow: "ArrowRightLinearIcon",
@@ -28,7 +29,7 @@ const data: DataType[] = [
         id: 1,
         title: "MEDION Family hospital",
         description: "Истирохат 258",
-        photo: "/avatar.webp",
+        photo: "/logo.png",
         titleBottomLeft: "s",
         arrow: "ArrowRightLinearIcon",
       },
@@ -48,6 +49,7 @@ const data: DataType[] = [
         id: 1,
         title: "Записи",
         titleIcon: "TicketBoldIcon",
+        route: "/session_page",
         badge: true,
         arrow: "ArrowRightLinearIcon",
         timeContainer: {
@@ -69,6 +71,7 @@ const data: DataType[] = [
         title: "Почта",
         titleIcon: "SmsBoldIcon",
         badge: true,
+        route: "/support_page",
         arrow: "ArrowRightLinearIcon",
         timeContainer: {
           label: "22",
@@ -146,6 +149,7 @@ const data: DataType[] = [
 ];
 
 const LeftPanel = () => {
+  const router = useRouter();
   return (
     <Container>
       <div className="navigation-container">
@@ -155,7 +159,11 @@ const LeftPanel = () => {
       {data.map((item, index) => (
         <PanelItemWrapper key={index} {...item}>
           {item.data.map((item) => (
-            <ButtonRow key={item.id} {...item} />
+            <ButtonRow
+              onClick={() => router.push(item.route || "#")}
+              key={item.id}
+              {...item}
+            />
           ))}
         </PanelItemWrapper>
       ))}

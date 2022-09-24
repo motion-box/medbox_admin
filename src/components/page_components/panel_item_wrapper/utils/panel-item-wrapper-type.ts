@@ -11,5 +11,5 @@ export type PanelItemWrapperProps = {
   titlerBtn?: string;
 };
 
-type ItemData = { id: number } & ButtonRowPropsDemo;
+type ItemData = { id: number; route?: string } & ButtonRowPropsDemo;
 type LitleData = { id: number } & LitleCardProps;

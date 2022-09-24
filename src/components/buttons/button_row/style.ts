@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ButtonRowPropsDemo } from ".";
 
-const Container = styled.div<ButtonRowPropsDemo>`
+const Container = styled.button<ButtonRowPropsDemo>`
   width: 100%;
   display: grid;
   grid-auto-flow: column;
@@ -11,7 +11,7 @@ const Container = styled.div<ButtonRowPropsDemo>`
   gap: 8px;
   position: relative;
   background-color: ${(props) => `var(--${props.backgroundColor || ""})`};
-
+  cursor: pointer;
   .badge {
     position: absolute;
     left: 6px;

@@ -6,6 +6,11 @@ const Container = styled.div`
   grid-template-rows: auto auto 1fr;
   gap: 24px;
 
+  .image-container {
+    display: grid;
+    justify-content: center;
+  }
+
   .appoinment-container {
     padding: 0 80px;
   }

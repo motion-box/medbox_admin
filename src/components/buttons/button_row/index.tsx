@@ -22,6 +22,8 @@ export type ButtonRowPropsDemo = {
   TickLinearIcon?: string;
   arrow?: AllIconsType;
   backgroundColor?: AllColorsType;
+  onClick?: () => void;
+  route?: string;
 };
 
 const ButtonRow = (props: ButtonRowPropsDemo) => {
@@ -37,9 +39,11 @@ const ButtonRow = (props: ButtonRowPropsDemo) => {
     verifyIcon,
     arrow,
     backgroundColor,
+    onClick,
+    route,
   } = props;
   return (
-    <Container {...props}>
+    <Container onClick={onClick} {...props}>
       {badge && (
         <div className="badge">
           <ItemWrapProvider backgroundColor="static_red" isBadge={true} />
@@ -56,7 +60,7 @@ const ButtonRow = (props: ButtonRowPropsDemo) => {
             borderRadius="8"
           />
         )}
-        {photo && <ItemWrapProvider photo="/avatar.webp" size="56" />}
+        {photo && <ItemWrapProvider photo={photo} size="56" />}
       </div>
       <div className="content-container">
         <div className="left-content-container">
