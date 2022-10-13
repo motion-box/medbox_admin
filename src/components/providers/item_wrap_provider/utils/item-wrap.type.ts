@@ -1,4 +1,4 @@
-import { AllIconsType, IconProps } from "../../../resources/allIcons";
+import { AllIconsType, IconProps } from "../../../resources/all_icons/allIcons";
 import { AllColorsType } from "../../../resources/colorPalet";
 export type ItemWrapProps = ItemOptionalType;
 
@@ -34,7 +34,7 @@ export type ItemOptionalType =
 export type ItemSize = "4" | "16" | "30" | "32" | "44" | "56" | "64";
 export type ItemBorderRadius = "8" | "100%";
 
-type ItemOptions = { name: AllIconsType } & IconProps;
+export type ItemOptions = { name: AllIconsType } & IconProps;
 
 export type ItemWrapOptions = {
   container: {

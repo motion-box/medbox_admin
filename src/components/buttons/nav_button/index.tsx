@@ -4,17 +4,11 @@ import Container from "./style";
 import { NavButtonProps } from "./utils/nav-button-type";
 
 const NavButton = (props: NavButtonProps) => {
-  const { text, icon, onClick, flexDirection, backgroundColor } = props;
+  const { text, icon, onClick } = props;
+
   return (
-    <Container
-      backgroundColor={backgroundColor}
-      {...props}
-      onClick={onClick}
-      flexDirection={flexDirection}
-    >
-      {icon ? (
-        <IconProvider {...props.options?.iconOptions} icon={icon} />
-      ) : null}
+    <Container {...props} onClick={onClick}>
+      {icon && <IconProvider {...props.options?.iconOptions} icon={icon} />}
       {text && (
         <TextProvider options={props.options?.textOptions}>{text}</TextProvider>
       )}

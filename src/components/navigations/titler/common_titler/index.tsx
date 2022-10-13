@@ -3,7 +3,7 @@ import NavButton from "../../../buttons/nav_button";
 import ItemWrapProvider from "../../../providers/item_wrap_provider";
 import TextProvider from "../../../providers/text_provider";
 import Container from "./style";
-import { CommonTitlerProps } from "./utils/common-titler-big";
+import { CommonTitlerProps } from "./utils/common-titler-type";
 import { useCommonTitlerOptionsType } from "./utils/common-titler-options";
 
 const CommonTitler = (props: CommonTitlerProps) => {
@@ -22,6 +22,7 @@ const CommonTitler = (props: CommonTitlerProps) => {
           <NavButton
             text={button.text}
             icon={button.iconName}
+            isReverse={button.isReverse}
             onClick={() => "Click"}
             options={options.buttonOptions}
           />

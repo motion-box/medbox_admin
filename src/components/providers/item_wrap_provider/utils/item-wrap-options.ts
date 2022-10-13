@@ -19,7 +19,7 @@ export const useItemWrapOptions = (props: ItemWrapProps): ItemWrapOptions => {
       borderRadius: !borderRadius
         ? "100%"
         : borderRadius.includes("%")
-        ? `${borderRadius}%`
+        ? `${borderRadius}`
         : `${borderRadius}px`,
       backgroundColor: !photoProps ? backgroundColor : "dynamic_light_gray60",
       borderColor,

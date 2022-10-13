@@ -1,26 +1,25 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import MainButton from "../../buttons/main_button";
 import NavButton from "../../buttons/nav_button";
 import IconProvider from "../../providers/icon_provider";
 import Container from "./style";
+import { SearchInputProps } from "./utils/search-filed-type";
 
-const SearchFiled = () => {
-  const inputRef = useRef(null);
-  const onButtonClick = () => {
-    // @ts-ignore
+type Iprops = Required<Omit<SearchInputProps, "onClick">>;
+
+const SearchFiled = (props: Iprops) => {
+  const { value, setValue, isSearching, setSearching } = props;
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const inputControl = (text: "clear" | "cancel") => {
+    if (!inputRef.current) return;
     inputRef.current.value = "";
-  };
-
-  const [show, setShow] = useState(false);
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value.length > 0) setShow(true);
-    else setShow(false);
-  };
-
-  const [focus, setFocus] = useState(false);
-  const handleFocus = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (event.target.value) setFocus(true);
-    else setFocus(false);
+    setValue("");
+    if (text == "cancel") {
+      inputRef.current.blur();
+      setValue("");
+      setSearching(false);
+    }
   };
 
   return (
@@ -35,32 +34,28 @@ const SearchFiled = () => {
           />
         </div>
         <input
-          ref={inputRef}
-          onChange={(event) => handleChange(event)}
-          onFocus={(event) => handleFocus(event)}
           type="text"
           placeholder="Поиск"
+          ref={inputRef}
+          onChange={(e) => setValue(e.currentTarget.value)}
+          onFocus={() => setSearching(true)}
         />
-        {show && (
-          <div className="close-container">
-            <MainButton
+        {value?.length > 0 ? (
+          <button
+            className="close-container"
+            onClick={() => inputControl("clear")}
+          >
+            <IconProvider
               icon="CloseCircleBoldIcon"
-              onClick={() => onButtonClick()}
-              options={{
-                iconOptions: {
-                  color: "dynamic_light_gray60",
-                },
-                padding: 1,
-              }}
+              color="dynamic_light_gray60"
             />
-          </div>
-        )}
+          </button>
+        ) : null}
       </div>
-
-      {focus && (
+      {isSearching && (
         <NavButton
           text="Отменить"
-          onClick={() => "sad"}
+          onClick={() => inputControl("cancel")}
           options={{
             textOptions: {
               fontSize: 17,

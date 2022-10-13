@@ -1,24 +1,34 @@
 import NavButton from "../../../buttons/nav_button";
 import TextProvider from "../../../providers/text_provider";
-import { MainTitlerProps } from "./main-titler-type";
 import Container from "./style";
+import { MainTitlerProps } from "./utils/main-titler-type";
 
 const MainTitler = (props: MainTitlerProps) => {
-  const { title, leftButton, rightButton, photo, btnIconName, btnText } = props;
-
+  const { title, button } = props;
   return (
     <Container>
-      {leftButton && (
+      {button?.leftButton && (
         <NavButton
-          text={btnText}
-          icon={btnIconName}
-          flexDirection
-          onClick={() => "sad"}
+          text={button.leftButton?.text}
+          icon={button.leftButton?.iconName}
+          onClick={() => "Back"}
+          options={{
+            textOptions: {
+              fontSize: 17,
+              fontWeight: 400,
+              color: button.leftButton?.color || "static_blue",
+            },
+            iconOptions: {
+              width: 24,
+              height: 24,
+              color: button.leftButton?.color || "static_blue",
+            },
+          }}
         />
       )}
-
-      {title && (
-        <div className="text-container">
+      <div />
+      <div className="title">
+        <div className="title-wrapper">
           <TextProvider
             options={{
               fontSize: 17,
@@ -29,18 +39,24 @@ const MainTitler = (props: MainTitlerProps) => {
             {title}
           </TextProvider>
         </div>
-      )}
-      {rightButton && (
+      </div>
+
+      {button?.rightButton && (
         <NavButton
-          text={btnText}
-          icon={btnIconName}
-          onClick={() => "sad"}
+          text={button.rightButton?.text}
+          icon={button.rightButton?.iconName}
+          isReverse
+          onClick={() => "Back"}
           options={{
             textOptions: {
-              color: "static_blue",
+              fontSize: 17,
+              fontWeight: 400,
+              color: button.rightButton?.color || "static_blue",
             },
             iconOptions: {
-              color: "static_blue",
+              width: 24,
+              height: 24,
+              color: button.rightButton?.color || "static_blue",
             },
           }}
         />

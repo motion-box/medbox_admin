@@ -1,88 +1,90 @@
 import styled from "styled-components";
-import { ButtonRowPropsDemo } from ".";
+import { ButtonRowProps } from "./button-row-type";
 
-const Container = styled.button<ButtonRowPropsDemo>`
+const Container = styled.div<ButtonRowProps>`
   width: 100%;
   display: grid;
   grid-auto-flow: column;
   grid-template-columns: auto 1fr;
-  align-items: center;
   padding: 0px 0px 0px 16px;
-  gap: 8px;
-  position: relative;
-  background-color: ${(props) => `var(--${props.backgroundColor || ""})`};
   cursor: pointer;
-  .badge {
-    position: absolute;
-    left: 6px;
-  }
 
-  .icon-container {
+  .avatar {
     display: grid;
     grid-auto-flow: column;
+    align-items: center;
     gap: 8px;
+    padding-right: 8px;
   }
 
-  .content-container {
+  .content {
     display: grid;
     grid-auto-flow: column;
-    grid-template-columns: 1fr auto;
+    justify-content: space-between;
     padding: 0px 16px 0px 0px;
-    gap: 8px;
-    border-bottom: 1px solid var(--dynamic_light_stroke);
+    border-bottom: 1px solid
+      ${(props) => `var(--${props.borderBottom || "dynamic_light_stroke"})`};
 
-    .left-content-container {
+    .left-content {
       display: grid;
       grid-auto-flow: column;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      padding: 11px 0;
+      grid-template-columns: max-content;
+      justify-content: start;
       gap: 8px;
+      align-items: center;
+      padding: 11px 0px;
 
-      .title-container {
+      .left-content-title {
         display: grid;
-        gap: 4px;
+        align-items: center;
+        text-align: start;
+        gap: 2px;
 
-        .title-top-container {
+        .left-content-title-top {
           display: grid;
           grid-auto-flow: column;
-          justify-content: start;
-          align-items: center;
+          grid-template-columns: max-content;
           gap: 4px;
         }
 
-        .title-bottom-container {
+        .left-content-bottom {
           display: grid;
           grid-auto-flow: column;
-          justify-content: start;
+          grid-template-columns: max-content;
           gap: 8px;
+          padding-top: 2px;
 
-          .title-bottom-left-container {
+          .rating {
             display: grid;
             grid-auto-flow: column;
             align-items: center;
             gap: 4px;
           }
-
-          .title-bottom-right-container {
+          .location {
             display: grid;
             grid-auto-flow: column;
             align-items: center;
+            grid-template-columns: max-content;
             gap: 4px;
           }
         }
       }
     }
-    .right-content-container {
+
+    .right-content {
       display: grid;
       grid-auto-flow: column;
-      align-items: center;
-      padding: 11px 0;
+      grid-template-columns: max-content;
+      justify-content: end;
       gap: 8px;
+      align-items: center;
+      padding: 11px 0px;
 
-      .time-container {
+      .right-content-title {
         display: grid;
-        text-align: right;
+        text-align: start;
+        align-items: center;
+        gap: 2px;
       }
     }
   }

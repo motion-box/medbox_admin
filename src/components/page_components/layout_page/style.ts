@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { LayoutPageProps } from "./page-layout-type";
+import { LayoutPageProps } from "./utils/page-layout-type";
 
 const Container = styled.div<LayoutPageProps>`
   ${(props) =>

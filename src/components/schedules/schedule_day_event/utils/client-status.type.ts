@@ -1,5 +1,5 @@
 import { AllColorsType } from "../../../resources/colorPalet";
-import { AllIconsType } from "../../../resources/allIcons";
+import { AllIconsType } from "../../../resources/all_icons/allIcons";
 
 export type ClientStatusProps = {
   time: string;

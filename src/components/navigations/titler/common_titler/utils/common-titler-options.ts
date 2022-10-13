@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import {
   CommonTitlerOptionsType,
   CommonTitlerProps,
-} from "./common-titler-big";
+} from "./common-titler-type";
 
 type CommonTitlerType = {
   [key: string]: CommonTitlerOptionsType;

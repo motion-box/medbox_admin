@@ -1,7 +1,8 @@
-import { AllIconsType } from "../../../resources/allIcons";
+import { AllIconsType } from "../../../resources/all_icons/allIcons";
 import { AllColorsType } from "../../../resources/colorPalet";
 
 export type ProblemCardProps = {
+  id?: number;
   title: string;
   iconWrap?: ProblemCardIconType;
   icon?: ProblemCardIconType;

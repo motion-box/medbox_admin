@@ -1,14 +1,12 @@
-import { MainButtonModel } from "../../../models/buttonModel";
 import IconProvider from "../../providers/icon_provider";
 import TextProvider from "../../providers/text_provider";
 import Container from "./style";
+import { MainButtonProps } from "./utils/main-button-type";
 
-interface Iprops extends MainButtonModel {}
-
-const MainButton = (props: Iprops) => {
-  const { options, onClick, text, icon } = props;
+const MainButton = (props: MainButtonProps) => {
+  const { options, onClick, text, icon, backgroundColor } = props;
   return (
-    <Container {...options} onClick={onClick}>
+    <Container backgroundColor={backgroundColor} {...options} onClick={onClick}>
       {icon && <IconProvider {...options?.iconOptions} icon={icon} />}
       {text && (
         <TextProvider options={options?.textOptions}>{text}</TextProvider>

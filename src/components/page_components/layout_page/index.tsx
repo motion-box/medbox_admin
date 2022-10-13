@@ -1,4 +1,4 @@
-import { LayoutPageProps } from "./page-layout-type";
+import { LayoutPageProps } from "./utils/page-layout-type";
 import Container from "./style";
 
 const LayoutPage = (props: LayoutPageProps) => {

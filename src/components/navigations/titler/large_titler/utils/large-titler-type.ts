@@ -1,11 +1,12 @@
-import { AllIconsType } from "../../../../resources/allIcons";
+import { text } from "stream/consumers";
+import { AllIconsType } from "../../../../resources/all_icons/allIcons";
 import { AllColorsType } from "../../../../resources/colorPalet";
 
 export type LargeTitleProps = {
   title: string;
-  description: string;
+  description?: string;
   button?: LargeTitleButton;
-  photo: string;
+  photo?: string;
   type: "big" | "middle";
 } & largeTitleOptions;
 
@@ -20,6 +21,7 @@ export type largeTitleOptions =
     };
 
 export type LargeTitleButton = {
+  text: string;
   iconName?: AllIconsType;
 };
 

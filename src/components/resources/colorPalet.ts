@@ -60,6 +60,7 @@ const allColorName = [
   "static_purple",
   "static_purple30",
   "static_purple50",
+  "static_pink",
   "dynamic_light_text",
   "dynamic_light_gray30",
   "dynamic_light_gray60",

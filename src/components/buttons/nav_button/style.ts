@@ -1,17 +1,24 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { NavButtonProps } from "./utils/nav-button-type";
 
 const Container = styled.button<NavButtonProps>`
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  flex-direction: ${(props) => (props.isReverse ? "row-reverse" : "row")};
   gap: 4px;
-  padding: 5px;
   border-radius: 7px;
-  flex-direction: ${(props) =>
-    props.flexDirection === true ? "row" : "row-reverse"};
-  background-color: ${(props) =>
-    props.backgroundColor ? `var(--${props.backgroundColor})` : ""};
+  /* ${(props) =>
+    !props.isReverse
+      ? css`
+          padding-left: 16px;
+        `
+      : css`
+          padding-right: 16px;
+        `} */
+
+  cursor: pointer;
 `;
 
 export default Container;

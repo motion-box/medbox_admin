@@ -2,17 +2,29 @@ import styled from "styled-components";
 
 const Container = styled.div`
   position: relative;
-  width: 100%;
   display: grid;
+  width: 100%;
+  height: 42px;
   grid-auto-flow: column;
   align-items: center;
+  justify-content: space-between;
 
-  .text-container {
+  .title {
     position: absolute;
     top: 0;
-    left: 0;
-    margin-left: 50%;
-    margin-top: 10px;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+
+    /* .title-wrapper {
+      position: absolute;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-align: center;
+    } */
   }
 `;
 

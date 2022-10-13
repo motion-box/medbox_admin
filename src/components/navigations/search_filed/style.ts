@@ -3,6 +3,7 @@ import styled from "styled-components";
 const Container = styled.div`
   display: grid;
   grid-auto-flow: column;
+  gap: 16px;
 
   .input-container {
     display: grid;
@@ -15,6 +16,7 @@ const Container = styled.div`
       outline: none;
       display: grid;
       grid-auto-flow: column;
+
       height: 38px;
       padding-left: 36px;
       padding-right: 36px;
@@ -35,8 +37,11 @@ const Container = styled.div`
       margin-left: 8px;
     }
     .close-container {
+      width: 18px;
+      height: 18px;
       position: absolute;
       right: 0;
+      top: 0;
       margin-top: 10px;
       margin-bottom: 10px;
       margin-right: 8px;

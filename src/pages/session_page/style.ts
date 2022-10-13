@@ -1,49 +1,74 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  .navigation {
+  .title {
+    position: sticky;
     display: grid;
-    grid-auto-flow: column;
-    align-items: center;
-    position: relative;
+    top: 0px;
+    padding-top: 16px;
+    z-index: 100;
+    background-color: var(--dynamic_light_bg);
+  }
 
-    .number {
-      position: absolute;
-      margin-left: 150px;
+  .appointment-card-wrap {
+    display: grid;
+    grid-template-rows: 1fr;
+    padding: 24px 80px;
+    gap: 16px;
+
+    .appointment-content-wrap {
+      display: grid;
+      align-self: center;
+      justify-self: center;
+      max-width: 530px;
+      min-width: 530px;
+      gap: 16px;
     }
   }
 
-  .information {
-    display: grid;
-    grid-auto-flow: row;
-    justify-content: start;
-    padding: 16px 0;
-    gap: 24px;
-
-    .descript {
-      margin-top: -20px;
-      margin-left: 20px;
-    }
+  .button-wrap {
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--static_white);
 
     .card-wrap {
+      display: grid;
+      grid-auto-flow: column;
+      padding: 0px 16px 8px;
+      gap: 8px;
+    }
+  }
+
+  .item-wrap {
+    display: grid;
+    padding-top: 34px;
+    gap: 24px;
+  }
+
+  .problem-card {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 16px;
+  }
+
+  .card-wrap {
+    display: grid;
+    .appointment-card {
+      display: grid;
+      padding: 8px 0px 0px;
       background-color: var(--static_white);
       border-radius: 16px;
 
-      .litle-card {
+      .litle-card-wrap {
         display: grid;
         grid-auto-flow: column;
-        padding: 8px 16px;
+        padding: 0px 16px 8px;
         gap: 8px;
-        grid-template-columns: 1fr 1fr 1fr;
-        border-bottom: 1px solid var(--dinamic_light_gray30);
+        border-bottom: 1px solid var(--dynamic_light_stroke);
       }
-
-      .text {
-        display: grid;
-        grid-auto-flow: column;
-        justify-content: space-between;
-        padding: 11px 16px;
-      }
+    }
+    .text {
+      padding: 8px 16px 0px;
     }
   }
 `;

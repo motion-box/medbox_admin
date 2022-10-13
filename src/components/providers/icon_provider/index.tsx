@@ -1,12 +1,12 @@
 import React from "react";
-import * as AllIcons from "../../resources/allIcons";
+import * as AllIcons from "../../resources/all_icons/allIcons";
 import Container from "./style";
 
-interface Iprops extends AllIcons.IconProps {
+export type IconProviderProps = AllIcons.IconProps & {
   icon: AllIcons.AllIconsType;
-}
+};
 
-const IconProvider = (props: Iprops) => {
+const IconProvider = (props: IconProviderProps) => {
   const { width, height, color, icon } = props;
   return (
     <Container>

@@ -1,6 +1,4 @@
 export type RightPanelProps = {
-  title?: string;
-  button?: string;
-  borderLeft?: string;
-  children?: React.ReactNode;
+  children: React.ReactNode;
+  borderLeft?: boolean;
 };

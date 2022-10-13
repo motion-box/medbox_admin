@@ -1,34 +1,20 @@
-import { MainButtonOptions } from "../../../models/buttonModel";
-// TODO: change bg-color
 import styled from "styled-components";
+import { MainButtonProps } from "./utils/main-button-type";
 
-interface Iprops extends MainButtonOptions {}
-
-const Container = styled.button<Iprops>`
+const Container = styled.button<MainButtonProps>`
+  width: 100%;
+  height: 48px;
   display: grid;
   grid-auto-flow: column;
   justify-content: center;
   align-items: center;
   gap: 8px;
   border-radius: 16px;
-  width: ${(props) =>
-    `${
-      props.width !== "100%"
-        ? `${props.width ? `${props.width}px` : "fit-contnent"}`
-        : "100%"
-    }`};
-  height: ${(props) =>
-    `${
-      props.height !== "100%"
-        ? `${props.height ? `${props.height}px` : "fit-contnent"}`
-        : "100%"
-    }`};
-  padding: ${(props) => `${props.padding || 12}px `};
-  border-radius: ${(props) => `${props.borderRadius || 16}px `};
+  padding: 0px;
+  border-radius: 16px;
   background-color: ${(props) =>
-    `var(--${props.backgroundColor || undefined})`};
+    props.backgroundColor ? `var(--${props.backgroundColor})` : ""};
   cursor: pointer;
 `;
 
 export default Container;
-// flex-direction: row-reverse;
