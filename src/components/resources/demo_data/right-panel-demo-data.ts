@@ -163,3 +163,52 @@ export const chatButtonRowData: ChatButtonRowDataType[] = [
     rating: "5",
   },
 ];
+type ChatSupportButtonRowDataType = ChatButtonRowProps;
+
+export const chatSupportButtonRowData: ChatSupportButtonRowDataType[] = [
+  {
+    id: 0,
+    photoUrl: "/monica.jpeg",
+    title: "MEDBOX support",
+    description: "Maximum restarts ",
+    rating: "5",
+  },
+  {
+    id: 1,
+    photoUrl: "/monica.jpeg",
+    title: "MEDBOX support",
+    description: "Исправлены баги",
+    rating: "5",
+  },
+  {
+    id: 2,
+    photoUrl: "/monica.jpeg",
+    title: "MEDBOX support",
+    description: "Исправлены баги",
+    rating: "5",
+  },
+  {
+    id: 3,
+    photoUrl: "/monica.jpeg",
+    title: "MEDBOX support",
+    description: "Исправлены баги",
+    rating: "5",
+  },
+];
+
+type MailDataType = Omit<SegmentedPickerButtonProps, "activeIndex" | "onClick">;
+
+export const mailData: MailDataType[] = [
+  {
+    id: 0,
+    title: "Входящие",
+  },
+  {
+    id: 1,
+    title: "Исходящие",
+  },
+  {
+    id: 2,
+    title: "Черновики",
+  },
+];

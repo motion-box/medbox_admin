@@ -5,9 +5,14 @@ import Container from "./style";
 import { ProblemCardProps } from "./utils/problem-card-type";
 
 const ProblemCard = (props: ProblemCardProps) => {
-  const { title, number, icon, iconWrap, backgroundColor } = props;
+  const { title, number, icon, iconWrap, backgroundColor, isActive, onClick } =
+    props;
   return (
-    <Container backgroundColor={backgroundColor}>
+    <Container
+      onClick={onClick}
+      isActive={isActive}
+      backgroundColor={backgroundColor}
+    >
       <div className="top-container">
         {iconWrap && (
           <ItemWrapProvider
@@ -37,16 +42,17 @@ const ProblemCard = (props: ProblemCardProps) => {
           {number}
         </TextProvider>
       </div>
-
-      <TextProvider
-        options={{
-          fontSize: 17,
-          fontWeight: 400,
-          color: "dynamic_light_gray60",
-        }}
-      >
-        {title}
-      </TextProvider>
+      <div className="bot-container">
+        <TextProvider
+          options={{
+            fontSize: 17,
+            fontWeight: 400,
+            color: "dynamic_light_gray60",
+          }}
+        >
+          {title}
+        </TextProvider>
+      </div>
     </Container>
   );
 };

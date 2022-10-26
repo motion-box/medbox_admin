@@ -5,7 +5,6 @@ const Container = styled.button<NavButtonProps>`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: ${(props) => (props.isReverse ? "row-reverse" : "row")};
   gap: 4px;
   border-radius: 7px;

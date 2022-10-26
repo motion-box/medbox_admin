@@ -38,7 +38,7 @@ export const data: DataType[] = [
         id: 1,
         icon: "TicketBoldIcon",
         title: "Записи",
-        route: "/session_page",
+        route: "/session_page?filter=today",
       },
       {
         id: 2,
@@ -50,6 +50,7 @@ export const data: DataType[] = [
         id: 3,
         icon: "SmsBoldIcon",
         title: "Почта",
+        route: "/mail_page",
       },
     ],
   },

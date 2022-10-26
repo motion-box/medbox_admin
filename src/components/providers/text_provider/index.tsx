@@ -1,5 +1,5 @@
 import React from "react";
-import { TextProviderModel } from "../../../models/textProviderModel";
+import { TextProviderModel } from "./utils/text-provider-type";
 
 interface Iprops extends TextProviderModel {}
 

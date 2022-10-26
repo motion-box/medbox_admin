@@ -5,18 +5,13 @@ const Container = styled.div<RightPanelProps>`
   position: relative;
   width: 375px;
   height: 100vh;
-  padding: 0 16px;
+  grid-template-rows: auto 1fr auto;
+  padding: 16px 16px;
   gap: 8px;
-  border-left: 1px solid
-    ${(props) => `var(--${props.borderLeft || "dynamic_light_stroke" || ""})`};
+  border-left: 1px solid ${(props) => `var(--${props.borderLeft || ""})`};
+  border-right: 1px solid ${(props) => `var(--${props.borderRight || ""})`};
   background-color: var(--dynamic_light_bg);
-  overflow-y: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  ::-webkit-scrollbar {
-    width: 0px;
-    display: none;
-  }
+  overflow-y: hidden;
 `;
 
 export default Container;

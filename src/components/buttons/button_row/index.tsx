@@ -55,7 +55,6 @@ const ButtonRow = (props: ButtonRowProps) => {
                   {leftContent?.description}
                 </TextProvider>
               )}
-
               {options.leftContent.bottom && (
                 <div className="left-content-bottom">
                   {options.leftContent.bottom.rating && (
@@ -91,7 +90,6 @@ const ButtonRow = (props: ButtonRowProps) => {
             </div>
           </div>
         )}
-
         {options.rightContent && (
           <div className="right-content">
             {options.rightContent.title && (

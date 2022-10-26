@@ -27,20 +27,17 @@ const MainTitler = (props: MainTitlerProps) => {
         />
       )}
       <div />
-      <div className="title">
-        <div className="title-wrapper">
-          <TextProvider
-            options={{
-              fontSize: 17,
-              fontWeight: 700,
-              color: "static_black",
-            }}
-          >
-            {title}
-          </TextProvider>
-        </div>
+      <div className="title-text">
+        <TextProvider
+          options={{
+            fontSize: 17,
+            fontWeight: 700,
+            color: "static_black",
+          }}
+        >
+          {title}
+        </TextProvider>
       </div>
-
       {button?.rightButton && (
         <NavButton
           text={button.rightButton?.text}

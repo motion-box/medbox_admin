@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import MainButton from "../../buttons/main_button";
 import NavButton from "../../buttons/nav_button";
 import IconProvider from "../../providers/icon_provider";
 import Container from "./style";

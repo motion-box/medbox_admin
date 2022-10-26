@@ -1,8 +1,8 @@
-import { TextProviderOptions } from "./../../../models/textProviderModel";
 import { ItemWrapProps } from "./../../providers/item_wrap_provider/utils/item-wrap.type";
 import { useMemo } from "react";
 import { ButtonRowProps } from "./button-row-type";
 import { IconProviderProps } from "../../providers/icon_provider";
+import { TextProviderOptions } from "../../providers/text_provider/utils/text-provider-type";
 
 type ButtonRowOptions = {
   item?: ButtonRowOptionsItem;

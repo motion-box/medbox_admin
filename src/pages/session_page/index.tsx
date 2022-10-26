@@ -1,6 +1,9 @@
-import AppointmentButtonRow from "../../components/cards/appointment_card/appointment_button_row";
+import { useRouter } from "next/router";
+import { useMemo } from "react";
+import MainButton from "../../components/buttons/main_button";
+import AppointmentCardWrap from "../../components/cards/appointment_card_wrap";
 import LitleCard from "../../components/cards/litle_cards";
-import ProblemCard from "../../components/cards/problem_card";
+import ProblemCardWrap from "../../components/cards/problem_card_wrap";
 import CommonTitler from "../../components/navigations/titler/common_titler";
 import LargeTitle from "../../components/navigations/titler/large_titler";
 import MainTitler from "../../components/navigations/titler/main_titler";
@@ -11,19 +14,39 @@ import RightPanel from "../../components/page_components/right_panel";
 import MaterialButtonRow from "../../components/page_components/right_panel/right_panel_item/material_button_row";
 import TextProvider from "../../components/providers/text_provider";
 import {
-  AppointmentCardData,
   litleCardTypeData,
-  problemCardData,
+  AppointmentCardSessionDataToday,
+  AppointmentCardSessionDataHistory,
+  AppointmentCardSessionDataPlanned,
 } from "../../components/resources/demo_data/session-page-data";
 import Container from "./style";
 
 const SessionPage = () => {
+  const router = useRouter();
+
+  const data = useMemo(() => {
+    const filter = router.query.filter as string | undefined;
+
+    switch (filter) {
+      case "today":
+        return AppointmentCardSessionDataToday;
+      case "planned":
+        return AppointmentCardSessionDataPlanned;
+
+      case "history":
+        return AppointmentCardSessionDataHistory;
+
+      default:
+        return AppointmentCardSessionDataToday;
+    }
+  }, [router.query.filter]);
+
   return (
     <Container>
       <LayoutPage mainPage>
         <LeftPanel />
         <PageContentWrap mainWrap>
-          <div className="title">
+          <div className="session-title">
             <CommonTitler
               type="big"
               title="Записи"
@@ -35,33 +58,10 @@ const SessionPage = () => {
               }}
             />
           </div>
-          <div className="problem-card">
-            {problemCardData.map((item) => (
-              <ProblemCard key={item.id} {...item} />
-            ))}
-          </div>
-          <div className="appointment-card-wrap">
-            {AppointmentCardData.map((item) => (
-              <div key={item.id} className="appointment-content-wrap">
-                {item.titlerdata?.map((item) => (
-                  <CommonTitler key={item.id} {...item} />
-                ))}
-
-                <div className="button-wrap">
-                  {item.buttonRowData.map((item) => (
-                    <AppointmentButtonRow key={item.id} {...item} />
-                  ))}
-                  <div className="card-wrap">
-                    {item.litleCardData.map((item) => (
-                      <LitleCard key={item.id} {...item} />
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ProblemCardWrap />
+          <AppointmentCardWrap data={data} />
         </PageContentWrap>
-        <RightPanel>
+        <RightPanel borderLeft="dynamic_light_stroke">
           <MainTitler
             title="№ 34 440"
             button={{
@@ -72,39 +72,53 @@ const SessionPage = () => {
               },
             }}
           />
-          <div className="item-wrap">
-            <LargeTitle
-              type="big"
-              photo="/monica.jpeg"
-              title="Hi"
-              description="description"
-            />
-            <div className="card-wrap">
-              <div className="appointment-card">
-                <div className="litle-card-wrap">
-                  {litleCardTypeData.map((item) => (
-                    <LitleCard key={item.id} {...item} />
-                  ))}
+          <div className="right-panel-item">
+            <div className="item-wrap">
+              <LargeTitle
+                type="big"
+                photo="/monica.jpeg"
+                title="Hi"
+                description="description"
+              />
+              <div className="card-wrap">
+                <div className="appointment-card">
+                  <div className="litle-card-wrap">
+                    {litleCardTypeData.map((item) => (
+                      <LitleCard key={item.id} {...item} />
+                    ))}
+                  </div>
+                  <MaterialButtonRow
+                    title="Клиника"
+                    description="MEDION Family Hospital"
+                  />
                 </div>
-                <MaterialButtonRow
-                  title="Клиника"
-                  description="MEDION Family Hospital"
-                />
-              </div>
-              <div className="text">
-                <TextProvider
-                  options={{
-                    fontSize: 12,
-                    fontWeight: 400,
-                    color: "dynamic_light_gray60",
-                  }}
-                >
-                  Необходио провести оплату за услугу в течении дня. При
-                  неоплате, заявка будет отклонена
-                </TextProvider>
+                <div className="text">
+                  <TextProvider
+                    options={{
+                      fontSize: 12,
+                      fontWeight: 400,
+                      color: "dynamic_light_gray60",
+                    }}
+                  >
+                    Необходио провести оплату за услугу в течении дня. При
+                    неоплате, заявка будет отклонена
+                  </TextProvider>
+                </div>
               </div>
             </div>
           </div>
+          <MainButton
+            backgroundColor="static_blue"
+            onClick={() => "click"}
+            text="Запросить доступ"
+            options={{
+              textOptions: {
+                fontSize: 17,
+                fontWeight: 700,
+                color: "static_white",
+              },
+            }}
+          />
         </RightPanel>
       </LayoutPage>
     </Container>

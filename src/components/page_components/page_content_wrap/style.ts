@@ -4,11 +4,11 @@ import { PageContentWrapProps } from "./utils/page-content-wrap-type";
 const Container = styled.div<PageContentWrapProps>`
   width: 100%;
   display: grid;
-  grid-auto-rows: max-content;
-  padding: 0px 16px 0px;
+  padding: 0px 16px;
   ${(props) =>
     props.mainWrap &&
     css`
+      grid-template-rows: auto auto 1fr;
       gap: 24px;
       overflow-y: auto;
       -ms-overflow-style: none;
@@ -21,8 +21,9 @@ const Container = styled.div<PageContentWrapProps>`
   ${(props) =>
     props.messengerWrap &&
     css`
+      padding-top: 16px;
       gap: 0px;
-    `}
+    `};
 `;
 
 export default Container;
